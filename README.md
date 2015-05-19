@@ -4,6 +4,7 @@ I assume that the data for this project (https://d396qusza40orc.cloudfront.net/g
 We need to download two additional packages : dplyr and reshape2
 
 Steps of processing the raw data:
+
 1. Create variables containing data from all data files (e.g. features.txt, activity_labels.txt)
 2. Join the training and the test sets to create one data set. (e.g with rbind)
 3. Label the data set with descriptive variable names from features.txt (second column)
