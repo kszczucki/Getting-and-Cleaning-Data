@@ -1,5 +1,7 @@
 # Getting-and-Cleaning-Data
 
+Purpose of this script is to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. 
+
 I assume that the data for this project (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip ) is downloaded and unziped into working directory.
 We need to download two additional packages : dplyr and reshape2
 
