@@ -1,8 +1,9 @@
-                  DATA DICTIONARY - SAMSUNG (Getting and Cleaning Data)
+                  #DATA DICTIONARY - SAMSUNG (Getting and Cleaning Data)#
 
 features  [561 x 2]
                   List of all features - data from features.txt
-                  V1       V2
+                  
+                   V1       V2
                      1 tBodyAcc-mean()-X
                      2 tBodyAcc-mean()-Y
                      3 tBodyAcc-mean()-Z
@@ -13,7 +14,7 @@ features  [561 x 2]
                      8  tBodyAcc-mad()-Y
                      9  tBodyAcc-mad()-Z
                     10  tBodyAcc-max()-X
-                  ...
+                   ...
 
 activity_labels 6
                   Links the class labels with their activity name - data from activity_labels.txt
