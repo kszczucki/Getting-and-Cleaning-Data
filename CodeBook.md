@@ -1,6 +1,6 @@
-                  ## DATA DICTIONARY - SAMSUNG (Getting and Cleaning Data)
+### DATA DICTIONARY - SAMSUNG (Getting and Cleaning Data)
 
-### features  [561 x 2]
+#### features  [561 x 2]
                   List of all features - data from features.txt
                   
                    V1       V2
@@ -16,7 +16,7 @@
                     10  tBodyAcc-max()-X
                    ...
 
-### activity_labels 6
+#### activity_labels 6
                   Links the class labels with their activity name - data from activity_labels.txt
                   
                   V1                 V2
@@ -27,7 +27,7 @@
                   5  5           STANDING
                   6  6             LAYING
 
-### X_train   [7,352 x 561]
+#### X_train   [7,352 x 561]
                   Training set - data from x_train.txt
   
           V1           V2         V3         V4         V5         V6         V7         V8         V9  ...
@@ -43,13 +43,13 @@
 10 0.2805857 -0.009960298 -0.1060652 -0.9948034 -0.9727584 -0.9862439 -0.9954046 -0.9736632 -0.9856419  
 ..       ...          ...        ...        ...        ...        ...        ...        ...        ...
 
-### subject_train 7,352
+#### subject_train 7,352
                   Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to                    30 - data from     subject_train.txt 
  
-### y_train 7,352
+#### y_train 7,352
                   Training labels - data from y_train.txt
  
-### X_test [2,947 x 561]
+#### X_test [2,947 x 561]
                   Test set - data from X_test.txt
           V1          V2          V3         V4         V5         V6         V7         V8         V9 ...
 1  0.2571778 -0.02328523 -0.01465376 -0.9384040 -0.9200908 -0.6676833 -0.9525011 -0.9252487 -0.6743022
@@ -65,8 +65,8 @@
 ..       ...         ...         ...        ...        ...        ...        ...        ...        ...
  
  
-### subject_test 2,947
+#### subject_test 2,947
                   Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to                    30 - data from     subject_test.txt
 
-### y_test 2,947
+#### y_test 2,947
                   Test labels - data from y_test.txt
