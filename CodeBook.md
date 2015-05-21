@@ -1,32 +1,32 @@
                   DATA DICTIONARY - SAMSUNG (Getting and Cleaning Data)
 
 features  [561 x 2]
-  List of all features - data from features.txt
-  V1       V2
-   1 tBodyAcc-mean()-X
-   2 tBodyAcc-mean()-Y
-   3 tBodyAcc-mean()-Z
-   4  tBodyAcc-std()-X
-   5  tBodyAcc-std()-Y
-   6  tBodyAcc-std()-Z
-   7  tBodyAcc-mad()-X
-   8  tBodyAcc-mad()-Y
-   9  tBodyAcc-mad()-Z
-  10  tBodyAcc-max()-X
-...
+                  List of all features - data from features.txt
+                  V1       V2
+                     1 tBodyAcc-mean()-X
+                     2 tBodyAcc-mean()-Y
+                     3 tBodyAcc-mean()-Z
+                     4  tBodyAcc-std()-X
+                     5  tBodyAcc-std()-Y
+                     6  tBodyAcc-std()-Z
+                     7  tBodyAcc-mad()-X
+                     8  tBodyAcc-mad()-Y
+                     9  tBodyAcc-mad()-Z
+                    10  tBodyAcc-max()-X
+                  ...
 
 activity_labels 6
-  Links the class labels with their activity name - data from activity_labels.txt
-  V1                 V2
-1  1            WALKING
-2  2   WALKING_UPSTAIRS
-3  3 WALKING_DOWNSTAIRS
-4  4            SITTING
-5  5           STANDING
-6  6             LAYING
+                  Links the class labels with their activity name - data from activity_labels.txt
+                  V1                 V2
+                  1  1            WALKING
+                  2  2   WALKING_UPSTAIRS
+                  3  3 WALKING_DOWNSTAIRS
+                  4  4            SITTING
+                  5  5           STANDING
+                  6  6             LAYING
 
 X_train   [7,352 x 561]
-  Training set - data from x_train.txt
+                  Training set - data from x_train.txt
   
           V1           V2         V3         V4         V5         V6         V7         V8         V9  ...
 1  0.2885845 -0.020294171 -0.1329051 -0.9952786 -0.9831106 -0.9135264 -0.9951121 -0.9831846 -0.9235270
@@ -42,13 +42,13 @@ X_train   [7,352 x 561]
 ..       ...          ...        ...        ...        ...        ...        ...        ...        ...
 
 subject_train 7,352
- Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30 - data from     subject_train.txt 
+                  Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to                    30 - data from     subject_train.txt 
  
 y_train 7,352
- Training labels - data from y_train.txt
+                  Training labels - data from y_train.txt
  
 X_test [2,947 x 561]
- Test set - data from X_test.txt
+                  Test set - data from X_test.txt
           V1          V2          V3         V4         V5         V6         V7         V8         V9 ...
 1  0.2571778 -0.02328523 -0.01465376 -0.9384040 -0.9200908 -0.6676833 -0.9525011 -0.9252487 -0.6743022
 2  0.2860267 -0.01316336 -0.11908252 -0.9754147 -0.9674579 -0.9449582 -0.9867988 -0.9684013 -0.9458234
@@ -64,7 +64,7 @@ X_test [2,947 x 561]
  
  
 subject_test 2,947
- Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30 - data from     subject_test.txt
+                  Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to                    30 - data from     subject_test.txt
 
 y_test 2,947
- Test labels - data from y_test.txt
+                  Test labels - data from y_test.txt
