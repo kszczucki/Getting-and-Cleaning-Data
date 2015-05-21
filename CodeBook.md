@@ -84,21 +84,36 @@
                   all observations with that fulfill grep_regexp
                   * X_meanstd <- X_all[,grep_regexp]
 
-y_test_activ
-y_test_activ <- tbl_df(join(y_test,activity_labels, by = "V1"))
+#### y_test_activ [2,947 x 2]
+                  test labels joined with activity label names
+                  * y_test_activ <- tbl_df(join(y_test,activity_labels, by = "V1")) 
 
-y_train_activ
-y_train_activ <- tbl_df(join(y_train, activity_labels, by = "V1"))
+#### y_train_activ [7,352 x 2]
+                  train labels joined with activity label names
+                  * y_train_activ <- tbl_df(join(y_train, activity_labels, by = "V1"))
 
-if(!exists("y_sub_train_act")) y_sub_train_act <- tbl_df(cbind(y_train_activ, subject_train))
-if(!exists("y_sub_test_act")) y_sub_test_act <- tbl_df(cbind(y_test_activ, subject_test))
+#### y_sub_train_act [7,352 x 3]
+                  train labels joined with subject performing activities
+                  * y_sub_train_act <- tbl_df(cbind(y_train_activ, subject_train))
 
- y_all <- tbl_df(rbind(y_sub_train_act,y_sub_test_act))
-        names(y_all) <- c("activity_nr","activity_description","subject_nr")
+#### y_sub_test_act [2,947 x 3]   
+                  test labels joined with subject performing activities
+                  * y_sub_test_act <- tbl_df(cbind(y_test_activ, subject_test))
+
+#### y_all [10,299 x 3]
+                  joined and renamed all activities and subjects
+                  * y_all <- tbl_df(rbind(y_sub_train_act,y_sub_test_act))
+                  * names(y_all) <- c("activity_nr","activity_description","subject_nr")
         
-if(!exists("Dataset")) Dataset <- tbl_df(cbind(y_all[,2:3], X_meanstd))
-#dodajemy biblioteke reshape2, id to te ktorych nie ruszamy, jak nie podamy nic po id to za variable 
-#robią wszystkie pozostałę kolumny
-dt_melt <- melt(Dataset, id = c("activity_description","subject_nr"))
-dt_cast <- dcast(dt_melt,activity_description + subject_nr ~ variable, mean)
+#### Dataset [10,299 x 88]
+                  Bind all data together
+                  * Dataset <- tbl_df(cbind(y_all[,2:3], X_meanstd))
+                  
+#### dt_melt
+                  Melting data with two main id's (column names : activity_description and subject_nr)
+                  * dt_melt <- melt(Dataset, id = c("activity_description","subject_nr"))
+                  
+#### dt_cast      
+                  to achive tidy data set with the average of each variable for each activity and each subject i've used dcast
+                  * dt_cast <- dcast(dt_melt,activity_description + subject_nr ~ variable, mean)
                   
