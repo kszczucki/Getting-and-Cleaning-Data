@@ -1,6 +1,6 @@
 ### DATA DICTIONARY - SAMSUNG (Getting and Cleaning Data)
 
-#### features  [561 x 2]
+#### features  [561 x 2] (all done by tbl_df(read.table("Dataset/UCI HAR Dataset/features.txt"))
                   List of all features - data from features.txt
                   
                    V1       V2
@@ -31,20 +31,20 @@
                   Training set - data from x_train.txt
   
           V1           V2         V3         V4         V5         V6         V7         V8         V9  ...
-1  0.2885845 -0.020294171 -0.1329051 -0.9952786 -0.9831106 -0.9135264 -0.9951121 -0.9831846 -0.9235270
-2  0.2784188 -0.016410568 -0.1235202 -0.9982453 -0.9753002 -0.9603220 -0.9988072 -0.9749144 -0.9576862
-3  0.2796531 -0.019467156 -0.1134617 -0.9953796 -0.9671870 -0.9789440 -0.9965199 -0.9636684 -0.9774686
-4  0.2791739 -0.026200646 -0.1232826 -0.9960915 -0.9834027 -0.9906751 -0.9970995 -0.9827498 -0.9893025
-5  0.2766288 -0.016569655 -0.1153619 -0.9981386 -0.9808173 -0.9904816 -0.9983211 -0.9796719 -0.9904411
-6  0.2771988 -0.010097850 -0.1051373 -0.9973350 -0.9904868 -0.9954200 -0.9976274 -0.9902177 -0.9955489
-7  0.2794539 -0.019640776 -0.1100221 -0.9969210 -0.9671859 -0.9831178 -0.9970027 -0.9660967 -0.9831163
-8  0.2774325 -0.030488303 -0.1253604 -0.9965593 -0.9667284 -0.9815853 -0.9964852 -0.9663131 -0.9829818
-9  0.2772934 -0.021750698 -0.1207508 -0.9973285 -0.9612453 -0.9836716 -0.9975958 -0.9572362 -0.9843793
-10 0.2805857 -0.009960298 -0.1060652 -0.9948034 -0.9727584 -0.9862439 -0.9954046 -0.9736632 -0.9856419  
-..       ...          ...        ...        ...        ...        ...        ...        ...        ...
+ 1  0.2885845 -0.020294171 -0.1329051 -0.9952786 -0.9831106 -0.9135264 -0.9951121 -0.9831846 -0.9235270
+ 2  0.2784188 -0.016410568 -0.1235202 -0.9982453 -0.9753002 -0.9603220 -0.9988072 -0.9749144 -0.9576862
+ 3  0.2796531 -0.019467156 -0.1134617 -0.9953796 -0.9671870 -0.9789440 -0.9965199 -0.9636684 -0.9774686
+ 4  0.2791739 -0.026200646 -0.1232826 -0.9960915 -0.9834027 -0.9906751 -0.9970995 -0.9827498 -0.9893025
+ 5  0.2766288 -0.016569655 -0.1153619 -0.9981386 -0.9808173 -0.9904816 -0.9983211 -0.9796719 -0.9904411
+ 6  0.2771988 -0.010097850 -0.1051373 -0.9973350 -0.9904868 -0.9954200 -0.9976274 -0.9902177 -0.9955489
+ 7  0.2794539 -0.019640776 -0.1100221 -0.9969210 -0.9671859 -0.9831178 -0.9970027 -0.9660967 -0.9831163
+ 8  0.2774325 -0.030488303 -0.1253604 -0.9965593 -0.9667284 -0.9815853 -0.9964852 -0.9663131 -0.9829818
+ 9  0.2772934 -0.021750698 -0.1207508 -0.9973285 -0.9612453 -0.9836716 -0.9975958 -0.9572362 -0.9843793
+ 10 0.2805857 -0.009960298 -0.1060652 -0.9948034 -0.9727584 -0.9862439 -0.9954046 -0.9736632 -0.9856419  
+ ..       ...          ...        ...        ...        ...        ...        ...        ...        ...
 
 #### subject_train 7,352
-                  Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to                    30 - data from     subject_train.txt 
+                  Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30 - data from     subject_train.txt 
  
 #### y_train 7,352
                   Training labels - data from y_train.txt
@@ -66,7 +66,39 @@
  
  
 #### subject_test 2,947
-                  Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to                    30 - data from     subject_test.txt
+                  Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30 - data from     subject_test.txt
 
 #### y_test 2,947
                   Test labels - data from y_test.txt
+
+#### X_all [10,299 x 561]
+                  merged and renamed X_train and X_test data sets 
+                  * rbind(X_train, X_test)
+                  * names(X_all) <- features$V2
+                  
+####  grep_regexp  86 
+                  columns with mean or std in label
+                  * grep(names(X_all),pattern = ".*([Mm]ean|std)(.*)?")
+                  
+#### X_meanstd [10,299 x 86]
+                  all observations with that fulfill grep_regexp
+                  * X_meanstd <- X_all[,grep_regexp]
+
+y_test_activ
+y_test_activ <- tbl_df(join(y_test,activity_labels, by = "V1"))
+
+y_train_activ
+y_train_activ <- tbl_df(join(y_train, activity_labels, by = "V1"))
+
+if(!exists("y_sub_train_act")) y_sub_train_act <- tbl_df(cbind(y_train_activ, subject_train))
+if(!exists("y_sub_test_act")) y_sub_test_act <- tbl_df(cbind(y_test_activ, subject_test))
+
+ y_all <- tbl_df(rbind(y_sub_train_act,y_sub_test_act))
+        names(y_all) <- c("activity_nr","activity_description","subject_nr")
+        
+if(!exists("Dataset")) Dataset <- tbl_df(cbind(y_all[,2:3], X_meanstd))
+#dodajemy biblioteke reshape2, id to te ktorych nie ruszamy, jak nie podamy nic po id to za variable 
+#robią wszystkie pozostałę kolumny
+dt_melt <- melt(Dataset, id = c("activity_description","subject_nr"))
+dt_cast <- dcast(dt_melt,activity_description + subject_nr ~ variable, mean)
+                  
