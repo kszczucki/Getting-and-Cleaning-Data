@@ -1,6 +1,6 @@
 ### DATA DICTIONARY - SAMSUNG (Getting and Cleaning Data)
 
-#### features  [561 x 2] (all done by tbl_df(read.table("Dataset/UCI HAR Dataset/features.txt"))
+#### features  [561 x 2] (all eight are made by functions like : tbl_df(read.table("Dataset/UCI HAR Dataset/features.txt"))
                   List of all features - data from features.txt
                   
                    V1       V2
